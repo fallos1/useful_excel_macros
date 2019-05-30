@@ -1,6 +1,6 @@
 ' Loop through all files in a folder with specific extention
 
-Sub loopFolder()
+Sub LoopFolder()
     Dim folderPath As String
     Dim fileName As String
     Dim fileExtention as String
@@ -20,7 +20,7 @@ Sub loopFolder()
       Application.ScreenUpdating = False
         Set wb = Workbooks.Open(folderPath & filename)
         ' Code to run on each file
-        Call anotherMacro
+        Call AnotherMacro
         
         wb.Save
         wb.Close
