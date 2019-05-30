@@ -1,6 +1,6 @@
 ' Print page 1 in all worksheets in workbook
 
-Sub printAllFirstPages()
+Sub PrintAllFirstPages()
 
 Dim ws As Worksheet
 For Each ws In Application.ActiveWorkbook.Worksheets
