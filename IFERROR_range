@@ -1,0 +1,27 @@
+' Add IFERROR() to all cells in range if formula exists
+
+Sub IFERROR_range()
+
+  Dim xCell As Range
+  Dim newValue As Variant
+
+  ' Let user choose error_if_option
+  errorValue = InputBox("What value would you like if there is an error?")
+
+  If IsNumeric(errorValue) And errorValue <> "" Then
+      errorValue = Val(errorValue)
+  ' If not numeric encapsulate in quotes "
+  Else
+      ' Chr(34) is "
+      errorValue = Chr(34) & errorValue & Chr(34)
+  End If
+
+  For Each xCell In Selection.Cells
+      If xCell.HasFormula And Not xCell.HasArray Then
+          xCell.Formula = "=IFERROR(" & Right(xCell.Formula, Len(xCell.Formula) - 1) & "," & newValue & ")"
+      End If
+
+  Next xCell
+
+End Sub
+
