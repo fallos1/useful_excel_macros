@@ -1,0 +1,18 @@
+Sub ListDir()
+Dim folderPath, strFile as String
+
+' folderPath is the folder we want to list files
+folderPath = "C:\test"
+' If forgot the last forward slash, add it
+If Right(folderPath, 1) <> "\" Then folderPath = folderPath + "\"
+
+strFile = Dir(folderPath)
+
+' itterate over each file and print to cell. 
+Do While Len(strFile) > 0
+  ActiveCell.Value = strFile
+  ActiveCell.Offset(1, 0).Activate
+  strFile = Dir
+Loop
+
+End Sub
